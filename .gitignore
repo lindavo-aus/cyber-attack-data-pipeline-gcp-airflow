@@ -205,3 +205,43 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+# =====================================
+# SECRETS & CREDENTIALS (CRITICAL)
+# =====================================
+secrets/
+*.json
+.env
+.env.*
+*.key
+*.pem
+
+# Prevent leaking GCP service account key
+airflow-sa.json
+
+#  DOCKER & AIRFLOW (AUTO-GENERATED)
+logs/
+airflow.db
+airflow-webserver.pid
+standalone_admin_password.txt
+
+# Airflow local configs (if generated)
+airflow.cfg
+webserver_config.py
+
+# DATA FILES (DATA STORED IN GCS)
+data/
+*.csv
+*.parquet
+*.xlsx
+
+# PYTHON + JUPYTER
+.ipynb_checkpoints/
+__pycache__/
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
