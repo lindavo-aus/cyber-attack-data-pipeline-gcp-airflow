@@ -196,6 +196,10 @@ webserver_config.py
 data/
 datasets/
 
+# R / local history files
+.Rhistory
+*.Rhistory
+
 # =====================================
 # OS FILES
 # =====================================
