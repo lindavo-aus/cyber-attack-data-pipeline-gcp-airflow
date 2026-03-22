@@ -143,12 +143,23 @@ Used directly in Looker Studio dashboards.
 
 ## BI Layer (Looker Studio — in progress)
 
-The dataset `incident_360_reporting_v` is structured to support dashboarding in Looker Studio, including:
+An executive dashboard was built in Looker Studio using the reporting view:
 
-- incident and loss trends over time  
-- comparisons across industries and countries  
-- analysis of attack types and severity  
-- market reaction and recovery patterns  
+`cyber_gold.incident_360_reporting_v`
+
+The dashboard supports interactive analysis of cyber attack incidents through:
+
+- KPI overview: total incidents, total financial loss, average loss, average downtime  
+- Industry-level comparisons  
+- Severity distribution analysis  
+- Time-based incident trends  
+- Interactive filters for industry, country, attack type, and date  
+
+### Dashboard Preview
+
+<p align="center">
+  <img src="./images/CyberProjectReport-Page1.png" width="850"/>
+</p>
 
 ---
 
