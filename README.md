@@ -141,6 +141,17 @@ Used directly in Looker Studio dashboards.
 
 ---
 
+## BI Layer (Looker Studio — in progress)
+
+The dataset `incident_360_reporting_v` is structured to support dashboarding in Looker Studio, including:
+
+- incident and loss trends over time  
+- comparisons across industries and countries  
+- analysis of attack types and severity  
+- market reaction and recovery patterns  
+
+---
+
 ## Data Modeling Strategy
 
 Bronze: Raw ingestion
