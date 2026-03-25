@@ -222,7 +222,7 @@ Reporting: BI-friendly view
 ## Future Improvements
 
 - Incremental data ingestion  
-- Slowly Changing Dimensions (SCD)  
+- Expending the dashboards
 - Streaming pipeline (Kafka / PubSub)  
 - Anomaly detection  
 
