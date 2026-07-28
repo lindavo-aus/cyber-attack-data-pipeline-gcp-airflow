@@ -15,7 +15,7 @@ This project builds a full data pipeline on Google Cloud Platform to analyze glo
 
 **Pipeline Flow**
 
-Raw CSV → GCS → Airflow → BigQuery (Bronze → Silver → Gold) → Looker Studio
+Raw CSV → GCS → Airflow → BigQuery (Bronze → Silver → Gold) → Reporting View → Looker Studio
 ---
 
 ## Architecture
@@ -26,24 +26,38 @@ Raw CSV → GCS → Airflow → BigQuery (Bronze → Silver → Gold) → Looker
 
 ---
 
+## Project Features
+- Event-driven incremental ingestion with Pub/Sub
+- Multi-layer data lakehouse architecture
+- Star schema dimensional modeling
+- Automated orchestration using Airflow
+- Incremental loading into Bronze tables
+- Ingestion audit logging
+- Reporting view for BI
+- Interactive Looker Studio dashboard
+
+---
+
 ## Objectives
 
 - Design a production-style data pipeline using GCP and Airflow  
 - Implement a multi-layer architecture (Bronze / Silver / Gold)  
 - Build a dimensional data model (star schema)  
 - Enable business analysis through a reporting layer  
-
+- Implement event-driven incremental ingestion using Google Cloud Pub/Sub
 ---
 
 ## Tech Stack
 
 | Layer            | Technology                          |
 |-----------------|-------------------------------------|
-| Cloud           | Google Cloud Platform (GCS, BigQuery) |
+| Cloud           | Google Cloud Storage                |
+| Messaging       | Google Cloud Pub/Sub                |
 | Orchestration   | Apache Airflow (Docker)             |
-| Processing      | SQL (BigQuery)                      |
+| Data Warehouse  | BigQuery                            |
+| Processing      | SQL                                 |
 | Visualization   | Looker Studio                       |
-| Version Control | GitHub                              |
+| Version Control | Git + Git                           |
 
 ---
 
@@ -68,6 +82,26 @@ Dataset: `cyber_bronze`
 - market_impact  
 
 Raw data is loaded with minimal transformation.
+
+---
+
+## Incremental Data Ingestion
+
+The pipeline supports event-driven incremental ingestion using Google Cloud Pub/Sub.
+
+Workflow:
+
+1. A new CSV file is uploaded to Google Cloud Storage.
+2. GCS publishes an OBJECT_FINALIZE event to Pub/Sub.
+3. Airflow polls the Pub/Sub subscription every minute.
+4. The uploaded file is automatically loaded into the appropriate Bronze table.
+5. Every ingestion is recorded in an audit log (`cyber_bronze.ingestion_log`) containing:
+
+- source file name
+- target table
+- rows loaded
+- ingestion status
+- execution metadata
 
 ---
 
@@ -155,6 +189,8 @@ The dashboard supports interactive analysis of cyber attack incidents through:
 - Time-based incident trends  
 - Interactive filters for industry, country, attack type, and date  
 
+---
+
 ### Dashboard Preview
 
 <p align="center">
@@ -169,7 +205,6 @@ Bronze: Raw ingestion
 Silver: Clean & standardize
 Gold: Star schema
 Reporting: BI-friendly view
-
 
 ---
 
@@ -215,20 +250,21 @@ Reporting: BI-friendly view
 
 - Sensitive files excluded via `.gitignore`  
 - Modular and reusable pipeline design  
-- Clear separation of ingestion, transformation, and modeling  
+- Clear separation of ingestion, transformation, and modeling
+- Event-driven incremental ingestion with Pub/Sub
+- Ingestion audit logging for traceability 
 
 ---
 
 ## Future Improvements
 
-- Incremental data ingestion  
-- Expending the dashboards
-- Streaming pipeline (Kafka / PubSub)  
-- Anomaly detection  
+- Develop an advanced Power BI dashboard with richer analytics and interactive storytelling
+- Expand the analytical dashboard with additional business KPIs and visualizations
+- Build executive and operational dashboards for different business users
 
 ---
 
 ## Author
 
 Linda Vo  
-Data Engineering & Data Science
+Data Engineering | Data Analytics | Data Science
