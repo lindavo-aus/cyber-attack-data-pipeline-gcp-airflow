@@ -21,7 +21,7 @@ Raw CSV → GCS → Airflow → BigQuery (Bronze → Silver → Gold) → Report
 ## Architecture
 
 <p align="center">
-  <img src="./images/pipeline_diagram.png" width="700"/>
+  <img src="./images/pipeline_diagram_v2.png" width="850"/>
 </p>
 
 ---
